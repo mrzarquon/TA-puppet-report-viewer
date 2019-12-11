@@ -69,13 +69,19 @@ def process_event(helper, *args, **kwargs):
     alert['global']['puppet_action_hec_token'] = helper.get_global_setting("puppet_action_hec_token")
     alert['global']['puppet_db_url'] = helper.get_global_setting("puppet_db_url")
 
-    alert['param']['transaction_uuid'] = helper.get_param("transaction_uuid")
     alert['param']['global_override'] = helper.get_param("global_override")
 
+    helper.log_info("Alert action puppet_generate_detailed_report check for json.")
+
     # Checks for a global overrides parameter and overrides any keys it finds
-    global_override = json.loads(alert['param']['global_override'])
-    for keyname, value in global_override.items():
-      alert['global'][keyname] = value
+    try:
+      global_override = json.loads(alert['param']['global_override'])
+      for keyname, value in global_override.items():
+        alert['global'][keyname] = value
+    except:
+      helper.log_info("global_override failed to be parsed,is it empty or not json.")
+    finally:
+      helper.log_info("global_override parsing finished continuing to run")
 
     events = helper.get_events()
     

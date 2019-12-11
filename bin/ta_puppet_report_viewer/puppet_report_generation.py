@@ -64,7 +64,7 @@ def parse_metrics(report_metrics):
 
 def run_report_generation(alert):
 
-  transaction_uuid = alert['param']['transaction_uuid'] or alert['result']['transaction_uuid']
+  transaction_uuid = alert['result']['transaction_uuid']
   host = alert['result']['host']
 
   # load our URLs, we generate possible ones assuming the console hostname is valid
@@ -91,13 +91,16 @@ def run_report_generation(alert):
   pdbuser = alert['global']['puppet_read_user']
   pdbpass = alert['global']['puppet_read_user_pass']
 
-  auth_token = pie.rbac.genauthtoken(pdbuser,pdbpass,'splunk report viewer',rbac_url)
+  if alert['global']['use_token'] == 'true':
+    auth_token = alert['global']['puppet_read_user_pass']
+  else:
+    auth_token = pie.rbac.genauthtoken(pdbuser,pdbpass,'splunk report viewer',rbac_url)
 
   detailed_report = {}
   try:
     detailed_report = pie.pdb.query(pql, pdb_url, auth_token)[0]
   except Exception as e:
-    raise Exception("Puppet DB query {0} returned no results: error = {}".format(pql, e))
+    raise Exception("Puppet DB query {} returned no results: error = {}".format(pql, e))
   
   # add URL to the detailed report
   # https://puppet.angrydome.org/#/inspect/report/1261440031c1b59f8238cfbdaaefc7dabb4e3ddb/events
