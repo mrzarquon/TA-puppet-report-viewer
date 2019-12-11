@@ -11,11 +11,14 @@ except ImportError:
   urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 #https://puppet.angrydome.org:4433/rbac-api/v1/auth/token
-def genauthtoken(username, password, label, url):
+def genauthtoken(username, password, label, url, timeout=360):
+
+  lifetime = "{}s".format(timeout*2)
+
   req = {
     'login': username,
     'password': password,
-    'lifetime': '0',
+    'lifetime': lifetime,
     'label': label,
   }
   

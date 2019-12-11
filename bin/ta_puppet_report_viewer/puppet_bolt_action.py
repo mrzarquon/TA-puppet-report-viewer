@@ -86,7 +86,8 @@ def run_bolt_task(alert):
   bolt_user = alert['global']['bolt_user'] or alert['global']['puppet_read_user']
   bolt_user_pass = alert['global']['bolt_user_pass'] or alert['global']['puppet_read_user_pass']
   task_timeout = alert['param']['task_timeout'] or 360
-  auth_token = pie.rbac.genauthtoken(bolt_user,bolt_user_pass,'splunk report viewer',rbac_url)
+
+  auth_token = pie.rbac.genauthtoken(bolt_user,bolt_user_pass,'splunk report viewer',rbac_url, timeout=task_timeout)
 
   # note: parameters is expected as a text string, not json, so in sample alert json must be represented as:
   # "task_parameters": "{ \"name\": \"ntpd\", \"action\": \"status\"}"
