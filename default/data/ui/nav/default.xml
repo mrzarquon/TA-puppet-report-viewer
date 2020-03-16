@@ -1,0 +1,21 @@
+
+<nav search_view="search" color="#000000">
+<view name="inventory" label="Inventory" default='true'/>
+<view name="trends" label="Trends" />
+<view name="overview" label="Overview" />
+<collection label="Reports">
+<view name="report_builder" default="true"/>
+<view name="all_reports"/>
+<view name="detailed_reports" />
+<view name="hosts_with_failures" />
+<view name="hosts_with_corrective_changes" />
+</collection>
+<collection label="Actions">
+<view name="alert_actions" label="Alert Actions"/>
+<view name="bolt_actions" label="Bolt Actions"/>
+</collection>
+<view name="metrics" label="Metrics" />
+<view name="alerts" label="Alerts" />
+<view name="search" label="Search"/>
+<view name="configuration" label="Configuration" />
+</nav>
