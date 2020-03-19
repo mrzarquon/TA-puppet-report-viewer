@@ -16,16 +16,7 @@ Once configured, the overview page will start showing Puppet run report status, 
 
 ![Reports Overview](https://raw.githubusercontent.com/puppetlabs/TA-puppet-report-viewer/master/README/img/overview.png)
 
-For detailed report generation, a feature for Puppet Enterprise Users, there are additional steps one can perform, that first require configuration the AddOn with the appropriate credentials to talk to PuppetDB and to submit events to Splunk:
-
-1. Create puppet:detailed HEC input
-2. Create a Splunk [user and role](https://puppet.com/docs/pe/latest/rbac_user_roles_intro.html#create-a-new-user-role) in the Puppet Enterprise console, with the permission to "View node data from PuppetDB" under the Nodes Type, if you wish to run Bolt tasks with the this same user for via the Tasks Alert Actions integration, add those permissions here
-3. On the configuration page of the addon provide the URL of the Puppet Enterprise Console, the Username and Password of the Splunk user you just created, the URL to the HEC collector, and the HEC token. The other options are for more advanced configurations.
-4. With the addon configured, perform a search for a specific event (such as a puppet run with a failed or changed status) `sourcetype="puppet:summary"| spath status | search status=failed` save it as an alert, and assign the action "Generate detailed report" from the action menu. No configuration of the action is needed.
-
-![Addon Configuration Screen](https://raw.githubusercontent.com/puppetlabs/TA-puppet-report-viewer/master/README/img/configuration.png)
-
-![Report Builder](https://raw.githubusercontent.com/puppetlabs/TA-puppet-report-viewer/master/README/img/report_builder.png)
+For detailed report generation, you will need to now install and configure the [Puppet Alert Actions Add-on](https://github.com/puppetlabs/TA-puppet-alert-actions)
 
 Advanced Configuration
 ----------------

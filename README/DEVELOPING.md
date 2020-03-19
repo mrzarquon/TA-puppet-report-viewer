@@ -10,7 +10,7 @@ In order to load this module properly into the Splunk Add-On builder for develop
 
 ```
 $ git checkout -b 'my working branch'
-$ COPYFILE_DISABLE=1 tar -C .. --exclude=".git" --exclude="local/" --exclude="metadata/local.meta" --exclude="tmpdir" -czvf tmpdir/TA-puppet-report-viewer.tar.gz TA-puppet-report-viewer
+$ COPYFILE_DISABLE=1 tar -C .. --exclude=".git" --exclude="local/" --exclude="metadata/local.meta" --exclude="tmpdir" --owner=0 --group=0 -czvf tmpdir/TA-puppet-report-viewer_export.tar.gz TA-puppet-report-viewer
 ```
 
 To add your finished work back to the repo:

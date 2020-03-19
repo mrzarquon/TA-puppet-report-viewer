@@ -1,6 +1,10 @@
 Release Notes
 ==============
 
+3.0.1:
+**Breaking Changes**:
+- Alert Actions are now moved to https://github.com/puppetlabs/TA-puppet-alert-actions for better compatibility of this App for users who don't use or need the addons
+
 2.0.0:
 **Breaking Changes**:
 - The alert action named `Generate detailed report` has been renamed `Generate a detailed Puppet report` to make it more specific. The internal name of the action has been renamed to `puppet_generate_detailed_report` from `generate_detailed_report` to prevent confusion with out alert actions and to ensure consistency with other. You will need to update existing searches using this action to use the new name, but no other changes to the searches is required.

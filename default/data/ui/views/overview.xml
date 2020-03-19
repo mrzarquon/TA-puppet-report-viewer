@@ -29,7 +29,7 @@
     <panel>
       <title></title>
       <html>
-        <b>Managed Hosts by Environment</b>                                                                    <button class="btn" align="right" data-unset-token="title1">X</button>
+        <b>Managed Hosts by Environment</b>
         </html>
       <single>
         <search>
@@ -68,7 +68,7 @@
     <panel>
       <title></title>
       <html>
-        <b>Hosts with corrective changes</b>                                                                    <button class="btn" align="right" data-unset-token="title2">X</button>
+        <b>Hosts with corrective changes</b>
         </html>
       <single>
         <search>
@@ -101,7 +101,7 @@
     <panel>
       <title></title>
       <html>
-        <b>Hosts with failures</b>                                                                    <button class="btn" align="right" data-unset-token="title3">X</button>
+        <b>Hosts with failures</b>
         </html>
       <single>
         <search>
@@ -232,7 +232,7 @@
     <panel>
       <title></title>
       <html>
-        <b>All reports</b>                                                                        <button class="btn" align="right" data-unset-token="title6">X</button>
+        <b>All reports</b>
         </html>
       <single>
         <search>
@@ -255,7 +255,7 @@
     <panel>
       <title></title>
       <html>
-        <b>Average Compilation Times</b>                                                                        <button class="btn" align="right" data-unset-token="title4">X</button>
+        <b>Average Compilation Times</b>
         </html>
       <single>
         <search>
